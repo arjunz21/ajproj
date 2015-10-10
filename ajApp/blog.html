@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BLOG</title>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript">
+		// var $form = $("form"), $comments = $("#comments"), $error = $("#err"), $loading = $("loading");
+		
+		// $(document).ready(function(){
+		$.ajaxSetup({
+			error: function(){
+				$("#err").fadeOut(1000);
+				$("#loading").fadeOut(1000);
+			} 
+		})
+
+		$(document).ready(function(){
+				$("#err").fadeOut(1000);
+				$("#loading").fadeOut(1000);
+		    $("form").submit(function(){
+  				event.preventDefault(); 
+				//$("form").hide();
+				$.ajax({
+					type: "POST",
+					url: "result.php",
+					data: $("form").serialize(),
+					beforeSend: function(){
+						$("loading").fadeOut(1000);
+						//alert("data1");
+					},
+					complete: function(){
+						$("loading").fadeOut(1000);
+						//alert("data3");
+					},
+					success: function(data){
+						//alert(data);
+						$("#comments").append('<p>'+data+'</p>');
+						$( "input[name*='user']" ).val( "" );
+						$( "textarea[name*='comment']" ).val( "" );
+					},
+				})
+				return false;
+			})
+		});
+	</script>
+</head>
+
+<body>
+	<h1>Welcome to Arjun's Blog</h1>
+
+	<form method="POST">
+		<div class="form-group">
+			<label>User:</label><br/>
+			<input name="user" type="text" /><br/><br/>
+
+			<label>Comment:</label><br/>
+			<textarea name="comment" rows="4" cols="40"></textarea><br/><br/>
+			
+			<input class="btn btn-primary" type="submit" value="Post" />
+		</div>
+	</form>
+
+	<div id="loading">loading...</div>
+	<div id="err"></div>
+
+	<div id="comments"></div>
+
+</body>
+</html>

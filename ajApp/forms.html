@@ -1,0 +1,44 @@
+<form action="" method="get">
+	<fieldset class="logininfo">
+		<legend>Login</legend>
+		<p>
+			<label for="lusername">Username:</label>
+			<input type="text" name="username" maxlength="10" size="10" /><br/>
+		</p>
+
+		<p>
+			<label for="lpassword">Password:</label>
+			<input type="password" name="password" maxlength="5" size="5" /><br/>
+		</p>
+	</fieldset>
+
+<fieldset>
+	<legend>Misc</legend>
+	Do you like to play games?<br/>
+	Action<input type="radio" name="radio_like" value="yes" />
+	Racing<input type="radio" name="radio_like" value="no" /><br/>
+
+	Which type of game do you like?<br/>
+	Action<input type="checkbox" name="chk_games[]" value="action" />
+	Racing<input type="checkbox" name="chk_games[]" value="racing" /><br/>
+
+	Why do you like?
+	<textarea name="reason" rows="3" cols="15"></textarea>
+
+	Pick a Game:
+	<select name="games" multiple size="5">
+		<optgroup label="action">
+			<option>Hitman</option>
+		</optgroup>
+
+		<optgroup label="racing">
+			<option>NFS</option>
+		</optgroup>
+	</select>
+	</fieldset>
+
+	<input type="button" value="Click ME" />
+	<input type="file" />
+	<input type="reset" />
+	<input type="submit" />
+</form>

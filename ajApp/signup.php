@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html data-ng-app="userApp">
 	<head>
 		<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>My page with Bootstrap</title>
 		<link rel="icon" type="image/png" href="minions.jpg"/>
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-cerulean.css">
 		<style type="text/css">
 			.box {
 			    width: 320px;
@@ -17,24 +17,13 @@
 
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
-
-		<!-- MYAjaXScript -->
-		<script type="text/javascript">
-			$(document).ready(function(){
-			    $("#links ol a").click(function(){
-		    		$("#loadajax").load(this.href);
-		    		return false;
-			    });
-			});
-		   	//$("#loadajax").load(this.href);
-		    // $.ajax({url:turl,success:function(result){
-		    //  		$("#loadajax").html(result);
-		    // }})
-		</script>
+		<script type="text/javascript" src="js/angular-min.js"></script>
+		<script type="text/javascript" src="js/angular-route.js"></script>
+		<script type="text/javascript" src="js/userapp.js"></script>
 	</head>
 
 
-	<body>
+	<body data-ng-controller="listController">
 		<div class="container">
 			<header>			
 				<nav class="navbar navbar-inverse">
@@ -93,10 +82,7 @@
 								      <input type="checkbox"> Remember me
 								    </label>
 								</div>
-
-								<br/>
-								<button type="submit" class="btn btn-primary active">Login</button>
-							    OR <a href="http://localhost/ajapp/signup.php">SignUP</a>
+							    <button type="submit" class="btn btn-primary active">Login</button>
 						        
 						    </form>
 				          </ul>
@@ -118,62 +104,18 @@
 
 			<!-- Main Page Starts -->
 			<div class="row">
-			  <div id="loadajax" class="col-xs-12 col-sm-6 col-md-8">
-			  	<h1>Welcome to My Minions Page</h1>
-			  	<button data-toggle="collapse" class="btn btn-info" data-target="#demo">Collapsible</button>
+			  <div class="col-xs-12 col-sm-6 col-md-8">
+			  	<h3>Welcome to Registration page</h3>
 
-				<div id="demo" class="collapse">
-					Lorem ipsum dolor text....
-				</div>
+			  	<div data-ng-view></div>
 
-				<p>This is para. . .</p>
-
-				<div class="container box">
-				    <a href="#" title="Dismissible popover" data-toggle="popover" data-trigger="focus" data-content="Click anywhere in the document to close this popover">Check my page</a><br/>
-
-				    A div tag <span>span here</span> ends here.<br/>
-
-					<a href="https://www.youtube.com/watch?v=QsW0cjsBf6o&index=44&list=PL41lfR-6DnOruqMacTfff1zrEcqtmm7Fv">Html Tutorial Cont ...</a>
-				</div>
-
-				<script>
-				$(document).ready(function(){
-				    $('[data-toggle="popover"]').popover();   
-				});
-				</script>
-				
-				<section class="left_side">
-					<article>
-						<header>
-							<div class="container">
-							  <h3>Tabs</h3>
-							  <ul class="nav nav-tabs">
-							    <li class="active"><a href="#">Home</a></li>
-							    <li><a href="#">Menu 1</a></li>
-							    <li><a href="#">Menu 2</a></li>
-							    <li><a href="#">Menu 3</a></li>
-							  </ul>
-							</div>
-
-							<h2>This is an article header!</h2>
-							<h3>Sub Header</h3>
-						</header>
-					<p>Marking here: <mark>Marked text here</mark></p>
-					<p><del>Deleted text Here...</del></p>
-					<p><s>Strike Line Here</s></p>
-					<p><ins>This line of text is meant to be treated as an addition to the document.</ins></p>
-					<p><u>This line of text will render as underlined</u></p>
-					<p><em>rendered as italicized text</em></p>
-					
-					<footer>- written by Arjun G</footer>
-					</article>
-				</section>
 			  </div>
 
+			  <!-- Right Side Bar -->
 			  <div class="col-xs-6 col-md-4">
 			  	<aside class="right_side">
 					<div>
-						<h2>Social links</h2>
+						<h3>Social links</h3>
 						<ul class="list-group">
 							<ol class="list-group-item"><a href="https://facebook.com">Facebook</a></ol>
 							<ol class="list-group-item"><a href="https://twitter.com">Twitter</a></ol>
@@ -183,10 +125,10 @@
 						</ul>
 					</div>
 					<div>
-						<h2>Related Articles</h2>
+						<h3>Related Articles</h3>
 						<article>
 							<header>
-								<h3>This can be another story</h3>
+								<h4>This can be another story</h4>
 							</header>
 							<p>Get intreseted to click below</p>
 
@@ -209,51 +151,16 @@
 					</div>
 				</aside>
 			  </div>
-			</div>
+			</div><!-- Right side bar end -->
 
 			<!-- Second row of grid -->
 			<div class="row">
 				<div class="table-responsive col-xs-4 col-sm-4 col-md-4">
-					<ul class="pagination">
-					  <li><a href="#">1</a></li>
-					  <li class="active"><a href="#">2</a></li>
-					  <li><a href="#">3</a></li>
-					</ul>
-
-					<ul class="pager">
-					   <li><a href="#">Previous</a></li>
-					   <li><a href="#">Next</a></li>
-					</ul>
-
-					<div class="panel panel-primary">
-				      <div class="panel-heading">Panel with panel-primary class</div>
-				      <div class="panel-body">Panel Content</div>
-				    </div>
+				<h2>another</h2>
 				</div>
 
 				<div class="col-xs-6 col-md-4">
-					<div class="well well-lg">Large Well</div>
-					<div class="alert alert-success">
-					  <strong>Success!</strong> Indicates a successful or positive action.
-					</div>
-					<a href="#">Comments <span class="badge">10</span></a><br>
-					<a href="#">Updates <span class="badge">2</span></a>
-					<button type="button" class="btn btn-primary">Primary <span class="badge">7</span></button>
-					
-					<div class="progress">
-					  <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50"
-					  aria-valuemin="0" aria-valuemax="100" style="width:50%">
-					    50% Complete (info)
-					</div>
-					
-					<div class="progress">
-					  <div class="progress-bar progress-bar-striped active" role="progressbar"
-					  aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
-					    40%
-					  </div>
-					</div>
-
-					</div>
+				<h2>another block2</h2>
 				</div>			
 			</div>
 
